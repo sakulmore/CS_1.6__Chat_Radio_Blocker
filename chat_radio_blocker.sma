@@ -5,6 +5,8 @@
 #define PLUGIN_VERSION "1.0"
 #define PLUGIN_AUTHOR  "sakulmore"
 
+#define RADIO_TOGGLE_FLAG ADMIN_BAN
+
 new bool:g_bBlockRadio = true;
 
 new g_msgRadioText;
@@ -23,7 +25,7 @@ public plugin_init()
     register_message(g_msgTextMsg,   "Hook_TextMsgRadio");
     register_message(g_msgSayText,   "Hook_SayTextMaybeRadio");
 
-    register_concmd("amx_radioturn", "CmdRadioTurn", 0, "on/off");
+    register_concmd("amx_radioturn", "CmdRadioTurn", RADIO_TOGGLE_FLAG, "on/off");
 }
 
 public Hook_RadioText(msg_id, msg_dest, msg_entity)
@@ -80,6 +82,16 @@ public Hook_SayTextMaybeRadio(msg_id, msg_dest, msg_entity)
 
 public CmdRadioTurn(id, level, cid)
 {
+    if (id != 0)
+    {
+        new flags = get_user_flags(id);
+        if (!(flags & RADIO_TOGGLE_FLAG))
+        {
+            client_print(id, print_console, "[ChatRadioBlocker] You do not have access to this command.");
+            return PLUGIN_HANDLED;
+        }
+    }
+
     if (read_argc() < 2)
     {
         if (id == 0) server_print("[ChatRadioBlocker] Usage: amx_radioturn on|off");
