@@ -1,5 +1,5 @@
 # CS_1.6__Chat_Radio_Blocker
-A plugin that blocks radio (RADIO) messages in chat (it does not affect voice commands).
+A plugin that blocks radio (RADIO) messages in chat (globally; it does not affect voice commands).
 
 # Installation
 - Just download the plugin and upload the .amxx file to your plugins folder on your server (or you can of course compile the .sma file and then upload the compilated .amxx file to your server).
