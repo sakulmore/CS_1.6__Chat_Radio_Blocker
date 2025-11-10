@@ -18,8 +18,8 @@ A plugin that blocks radio (RADIO) messages in chat (globally; it does not affec
 
 The command is protected by an Admin Flag. To change the Admin Flag, simply edit the line `#define RADIO_TOGGLE_FLAG ADMIN_BAN` in the .sma file.
 
-# Support
-If you having any issues please feel free to write your issue to the issue section :) .
-
 # Showcases
 https://youtu.be/otEziremJWc
+
+# Support
+If you having any issues please feel free to write your issue to the issue section :) .
